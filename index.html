@@ -1,0 +1,121 @@
+<!-- Teoría y desarrollo:  @telecristy de codejobs
+
+##############################
+##### ¿Qué es AngularJS? #####
+##############################
+
+AngularJS es un framework de JavaScript de lado cliente que nos sirve para agregar
+interactividad a nuestro HTML. Si bien, AngularJS es desarrollado por la empresa Google.
+
+###############################################################################
+##### ¿Cómo le decimos a nuestro HTML cuando disparar nuestro JavaScript? #####
+###############################################################################
+
+En AngularJS usamos Directivas (directives) las cuales son una marca sobre nuestras
+etiquetas HTML que le dicen a Angular  que ejecute o haga referencia a algún código
+de JavaScript.
+
+Las directivas en Angular unen el comportamiento de nuestro HTML con el código JavaScript.
+
+Un ejemplo de directiva seria:
+
+<body ng-controller="modulo_usuarios">
+</body>
+
+En este ejemplo vamos a desarrollar una aplicación con AngularJS llamada "modulo_usuarios".
+
+Si bien, lo primero que tenemos que hacer para comenzar a desarrollar nuestra aplicación
+es descargar AngularJS de la página oficial
+
+>>> https://angularjs.org/
+
+Como segundo paso vamos a incluir AngularJS a nuestro HTML de la siguiente manera,
+yo por ejemplo coloque AngularJS dentro de una carpeta llamada "lib" (librerías):
+
+<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+</body>
+</html> 
+
+Ahora bien, el siguiente componente que necesitamos conocer sobre AngularJS son los Módulos.
+
+############################################
+##### ¿Qué es un módulo en AngularJS? ######
+############################################
+
+Aquí escribimos piezas de nuestra aplicación Angular. Encapsulamos código en los módulos,
+entonces esto hace que nuestro código sea mantenible, mas testeable y que tenga
+una mejor lectura.
+
+En un modulo también definimos las dependencias de nuestra aplicación, por ejemplo un
+módulo puede depender de otros 2 módulos.
+
+Para crear nuestro primer módulo, lo primero que tenemos que hacer es crear un archivo
+llamado "app.js" y escribimos:
+
+var app = angular.module('modulo_usuarios', []);
+ 
+Te explico otro ejemplo: Declaramos una variable, dentro de esa variable hacemos
+referencia a AngularJS posteriormente le decimos que vamos a crear un modulo (.module)
+entre paréntesis va el nombre de la aplicación por ejemplo; ‘modulo_usuariosCodejobs’ y
+por ultimo entre corchetes pondremos algunas otras librerías de las que dependa
+nuestra aplicación.
+
+Ahora bien, para hacer uso de "app.js" vamos a mandarlo llamar en nuestro HTML
+de la siguiente manera:
+
+<script type="text/javascript" src="app.js"></script>
+
+Y en nuestro HTML declararemos una directiva llamada ng-app="modulo_usuarios" de la
+siguiente manera:
+
+<!DOCTYPE html>
+<html ng-app="modulo_usuarios">
+
+Esta directiva crea la aplicación angular y ejecuta ese modulo "modulo_usuarios" cuando
+se lee el documento.
+
+###################################################
+##### ¿Qué son las expresiones en AngularJS? ######
+###################################################
+
+Las expresiones en AngularJS nos permiten insertar valores dinámicos en nuestro HTML.
+
+Por ejemplo:
+
+<p>Tengo {{20 + 6}} años</p>
+ 
+En el navegador me mostrara: Tengo 26 años
+
+<p>{{"Hola" + "¿Como estas?"}}</p>
+
+En el navegador me mostrara: Hola ¿Cómo estas?
+-->
+
+<!DOCTYPE html>
+<html ng-app="modulo_usuarios">
+<head>
+  <title>Ejemplo de Angular</title>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+  <script type="text/javascript" src="lib/modulos/app.js"></script>
+</head>
+<body>
+  <table border="3px" cellpadding="5px" cellspacing="5px" style="width:70%">
+    <tr>
+      <td><b>Nombre</b></td>
+      <td><b>Apellido</b></td>
+      <td><b>Edad</b></td>
+    </tr>
+    <tr>
+      <td>Yolanda</td>
+      <td>{{"Contre"+"ras"}}</td>
+      <td>{{20 + 6}}</td>
+    </tr>
+    <tr>
+      <td>María</td>
+      <td>{{"Macha"+"do"}}</td>
+      <td>{{18 + 4}}</td>
+    </tr>
+  </table>
+</body>
+</html>
